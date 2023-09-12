@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      # Log in to Amazon ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <aws_account>.dkr.ecr.us-east-1.amazonaws.com
+      
+  build:
+    commands:
+      # Build the Docker image
+      - docker build -t ecs-flaskapp .
+
+  post_build:
+    commands:
+      # Push the Docker image to Amazon ECR
+      - docker tag ecs-flaskapp <aws_account>.dkr.ecr.us-east-1.amazonaws.com/ecs-flaskapp:latest
+      - docker push <aws_account>.dkr.ecr.us-east-1.amazonaws.com/ecs-flaskapp:latest
+      - aws ecs update-service --cluster app-cluster --service app-service --force-new-deployment
+
+artifacts:
+  files:
+  discard-paths: yes

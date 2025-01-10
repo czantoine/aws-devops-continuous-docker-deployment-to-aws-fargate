@@ -13,6 +13,10 @@ The following diagram shows the flow of events in the solution:
 
 ![AWS DevOps: Continuous Docker Deployment to AWS Fargate from GitHub using Terraform](./img/aws-devops-continuous-docker-deployment-to-aws-fargate.gif)
 
+If you enjoy my projects and want to support my work, consider buying me a coffee! ☕️
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V22V693)
+
 ## Introduction
 
 In the ever-evolving landscape of DevOps practices, the ability to streamline and automate application deployment processes is crucial. In this article, we will explore a hands-on guide for achieving Continuous Docker Deployment to AWS Fargate from a GitHub repository using Terraform. This DevOps pipeline will allow developers to push code changes to a GitHub repository and have them automatically deployed to an AWS Fargate cluster.
